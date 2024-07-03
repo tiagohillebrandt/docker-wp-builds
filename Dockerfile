@@ -20,4 +20,4 @@ RUN mv /tmp/composer.phar /usr/local/bin/composer
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
 RUN echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
-RUN bash -c "nvm install lts/hydrogen"
+RUN source $HOME/.nvm/nvm.sh && nvm install lts/hydrogen
