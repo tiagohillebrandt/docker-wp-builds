@@ -17,4 +17,4 @@ RUN cd /tmp && curl -sS https://getcomposer.org/installer | php
 RUN mv /tmp/composer.phar /usr/local/bin/composer
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN nvm install lts/hydrogen
+RUN [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm install lts/hydrogen
