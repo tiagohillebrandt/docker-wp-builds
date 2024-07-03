@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -yq \
     php7.4-cli \
     php7.4-curl \
     php7.4-xml \
-    php7.4-zip
+    php7.4-zip \
+    php7.4-mbstring
 
 RUN add-apt-repository ppa:tiagohillebrandt/wp-cli -y --no-update
 RUN apt-get update && apt-get install -yq wp-cli
