@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -yq \
 RUN add-apt-repository ppa:ondrej/php -y --no-update
 RUN apt-get update && apt-get install -yq \
     php7.4-cli \
+    php7.4-curl \
     php7.4-xml \
     php7.4-zip
 
