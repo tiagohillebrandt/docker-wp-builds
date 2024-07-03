@@ -22,6 +22,9 @@ RUN apt-get update && apt-get install -yq \
     php7.4-xml \
     php7.4-zip
 
+RUN add-apt-repository ppa:tiagohillebrandt/wp-cli -y --no-update
+RUN apt-get update && apt-get install -yq wp-cli
+
 RUN cd /tmp && curl -sS https://getcomposer.org/installer | php
 RUN mv /tmp/composer.phar /usr/local/bin/composer
 
