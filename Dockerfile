@@ -13,10 +13,14 @@ RUN apt-get update && apt-get install -yq \
     curl \
     wget \
     jq \
+    git \
     software-properties-common
 
 RUN add-apt-repository ppa:ondrej/php -y --no-update
-RUN apt-get update && apt-get install -yq php7.4-cli php7.4-xml
+RUN apt-get update && apt-get install -yq \
+    php7.4-cli \
+    php7.4-xml \
+    php7.4-zip
 
 RUN cd /tmp && curl -sS https://getcomposer.org/installer | php
 RUN mv /tmp/composer.phar /usr/local/bin/composer
