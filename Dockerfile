@@ -25,6 +25,11 @@ RUN apt-get update && apt-get install -yq \
 
 RUN add-apt-repository ppa:tiagohillebrandt/wp-cli -y --no-update
 RUN apt-get update && apt-get install -yq wp-cli
+RUN mv /usr/bin/wp /usr/bin/wp-cli
+
+RUN echo '#!/bin/bash' >> /usr/local/bin/wp
+RUN echo '/usr/bin/wp-cli --allow-root "$@"' >> /usr/local/bin/wp
+RUN chmod +x /usr/local/bin/wp
 
 RUN cd /tmp && curl -sS https://getcomposer.org/installer | php
 RUN mv /tmp/composer.phar /usr/local/bin/composer
