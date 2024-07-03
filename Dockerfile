@@ -1,8 +1,11 @@
 FROM ubuntu:noble
 LABEL maintainer="Tiago Hillebrandt <tiago@tiagohillebrandt.com>"
 
-ENV SHELL=/bin/bash
+SHELL ["/bin/bash", "-c"]
+
 ENV TZ=America/New_York
+
+RUN chsh -s /bin/bash root
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -20,4 +23,4 @@ RUN mv /tmp/composer.phar /usr/local/bin/composer
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
 RUN echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
-RUN source $HOME/.nvm/nvm.sh && nvm install lts/hydrogen
+RUN \. ~/.nvm/nvm.sh && nvm install lts/hydrogen
