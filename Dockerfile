@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -yq \
     wget \
     jq \
     git \
+    unzip \
     software-properties-common
 
 RUN add-apt-repository ppa:ondrej/php -y --no-update
