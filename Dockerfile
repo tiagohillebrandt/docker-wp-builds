@@ -1,6 +1,7 @@
 FROM ubuntu:noble
 LABEL maintainer="Tiago Hillebrandt <tiago@tiagohillebrandt.com>"
 
+ENV SHELL=/bin/bash
 ENV TZ=America/New_York
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
